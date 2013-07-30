@@ -1,0 +1,9 @@
+#!/bin/sh
+PWD=$(pwd)
+echo $PWD
+export CROSS_COMPILE=arm-linux-gnueabihf-
+export ARCH=arm
+export TEGRA_KERNEL_OUT=$PWD/../../_out
+export INSTALL_MOD_PATH=$PWD/../../_mod
+mkdir -p $INSTALL_MOD_PATH
+make O=$TEGRA_KERNEL_OUT modules_install $@
